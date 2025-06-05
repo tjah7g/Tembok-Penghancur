@@ -1,73 +1,19 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
- /*--------------------------------****************************************----------------------------------
-  |                                *                                      *                                 |
-  |    My Bricks Breaker           *        Level Class Definitions       *                                 |
-  |                                *                                      *                                 |
-  ---------------------------------****************************************----------------------------------*/
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*
-
-	Renders ball, paddle, FPS, and Bricks
-	Child class of the Instance class
-
-*/
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "Level.h"
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//---------------------------------------------- Class Level ----------------------------------------------------
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//----------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------
-
-// Constructors
-//----------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------- Default constructor
-/*---------------------------------------------------
-
-	Default construtor
-
- ----------------------------------------------------*/
 Level::Level()
 {
-	// empty
+	
 }
 
-
-//--------------------------------------------------------------------- Constructor-1
-
-/*---------------------------------------------------
-
-	Constructor-1
-	brick type, sound collision
-
- ----------------------------------------------------*/
 Level::Level(vector<int>& brickType)
 {
-	// Bricks
+	
 	this->brickType = brickType;
 	buildBricks();
 
 }
 
-//----------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------
-
-// Accessors Methods
-//----------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------- Method render()
-/*----------------------------------------------------
-
-	Render the Level class
-
- -----------------------------------------------------*/
 void Level::render()
 {
 	while (true)
@@ -75,7 +21,7 @@ void Level::render()
 		Instance::updateInst();
 		update();
 		draw();
-		// Player missed the ball
+		
 		if (Instance::collisionResult == BALL_MISS_PADDLE)
 		{
 			int textWidth = MeasureText("You missed the ball\n press Q to exit", 60);
@@ -86,40 +32,26 @@ void Level::render()
 	}
 }
 
-
-//----------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------
-
-// Mutators Methods
-//---------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------- Method update()
-
-/*----------------------------------------------------
-
-	Updates ball and bricks collision
-
- -----------------------------------------------------*/
 void Level::update()
 {
-	// Brick iteration
+	
 	for (Brick& brick : bricks)
 	{
 		if (brick.isAlive)
 		{
-			// The ball has collided with the brick, 
+			
 			if (CheckCollisionCircleRec(Vector2{ ball.x, ball.y }, ball.radius, brick.rect_collision()))
 			{
 				if (isSound) PlaySound(soundBall);
 
-				if ((ball.x <= brick.x + 8) || // Brick left side
-					(ball.x >= brick.x + brick.width + 11)) // Brick right side
+				if ((ball.x <= brick.x + 8) || 
+					(ball.x >= brick.x + brick.width + 11)) 
 				{
-					ball.velocityX *= -1; // Changes ball x-axis velocity direction
+					ball.velocityX *= -1; 
 				}
-				else // The ball has collided with the top or bottom of the brick
+				else 
 				{
-					ball.velocityY *= -1; // Changes ball y-axis velocity direction
+					ball.velocityY *= -1; 
 				}
 				brick.isAlive = false;
 				break;
@@ -128,23 +60,19 @@ void Level::update()
 	}
 }
 
-//----------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------
 
-// Class Methods Operations (private)
-//---------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------- Method draw()
-/*---------------------------------------------------
 
-	Displays Ball, paddle, Bricks
 
- ----------------------------------------------------*/
+
+
+
+
 void Level::draw()
 {
 
 	BeginDrawing();
-	// -----------------------------------
+	
 
 	ClearBackground(BLACK);
 
@@ -162,29 +90,18 @@ void Level::draw()
 
 	DrawFPS(10, 775);
 
-	/*if (text)
-	{
-		int textWidth = MeasureText(text, 60);
-		DrawText(text, GetScreenWidth() / 2 - textWidth / 2, GetScreenHeight() / 2 - 30, 60, YELLOW);
-		instance_is_live = false;
 
-	}*/
 
-	// -----------------------------------
+	
 	EndDrawing();
 }
 
-//--------------------------------------------------------------------- Method build_bricks()
 
-/*----------------------------------------------------
 
-	Build the bricks the game (private)
-	Utilized by constructors
 
- -----------------------------------------------------*/
 void Level::buildBricks()
 {
-	// Creates an object brick and assigns to it a color
+	
 	for (int type : brickType)
 	{
 		Brick brick;
@@ -257,14 +174,14 @@ void Level::buildBricks()
 
 		bricks.push_back(brick);
 
-	} // for loop color
+	} 
 
 	int brickIndex = 0;
-	// Assigns position to bricks
-	for (int rowY = 50; rowY < 240; rowY += 28) // brick rows, y positions
+	
+	for (int rowY = 50; rowY < 240; rowY += 28) 
 	{
 
-		for (int columnX = 42; columnX < 758; columnX += 52) // brick columns, x positions
+		for (int columnX = 42; columnX < 758; columnX += 52) 
 		{
 			bricks[brickIndex].x = (float)columnX;
 			bricks[brickIndex].y = (float)rowY;
@@ -272,6 +189,6 @@ void Level::buildBricks()
 		}
 	}
 
-} // build_bricks()
+} 
 
 
