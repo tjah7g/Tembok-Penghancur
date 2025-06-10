@@ -130,16 +130,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
+    <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="Instance.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="ScoreManager.cpp" />
     <ClCompile Include="Tembok Penghancur.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h" />
+    <ClInclude Include="BrickFactory.h" />
     <ClInclude Include="ButtonP.h" />
     <ClInclude Include="ButtonR.h" />
+    <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="Instance.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Observer.h" />
+    <ClInclude Include="ScoreManager.h" />
+    <ClInclude Include="ScoreObserver.h" />
+    <ClInclude Include="Subject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="Click_UI.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -71,6 +71,12 @@ struct Brick {
 
 	bool isAlive = true;
 
+	Brick() {} // default constructor
+
+	Brick(float x, float y, float width, float height, Color color)
+		: x(x), y(y), width(width), height(height), color(color), isAlive(true)
+	{}
+
 	Rectangle rect_collision() 
 	{
 		return Rectangle{ x , y , width + 8, height + 8 };

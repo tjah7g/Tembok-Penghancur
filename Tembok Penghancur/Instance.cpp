@@ -131,7 +131,7 @@ int Instance::ballCollisions()
 
     if (CheckCollisionCircleRec(Vector2{ ball.x, ball.y }, ball.radius, paddle.rect()))
     {
-        if (isSound) PlaySound(soundBall);
+        //if (isSound) PlaySound(soundBall);
 
         if ((ball.x <= paddle.x) || 
             (ball.x >= paddle.x + paddle.width)) 
@@ -150,7 +150,7 @@ int Instance::ballCollisions()
     
     else if (ball.x > GetScreenWidth())
     {
-        if (isSound) PlaySound(soundBall);
+        //if (isSound) PlaySound(soundBall);
 
         ball.x = (float)GetScreenWidth();
         ball.velocityX *= -1; 
@@ -158,7 +158,7 @@ int Instance::ballCollisions()
     
     else if (ball.x < 0)
     {
-        if (isSound) PlaySound(soundBall);
+        //if (isSound) PlaySound(soundBall);
 
         ball.x = 0;
         ball.velocityX *= -1; 
@@ -166,7 +166,7 @@ int Instance::ballCollisions()
     
     else if (ball.y < 0)
     {
-        if (isSound) PlaySound(soundBall);
+        //if (isSound) PlaySound(soundBall);
 
         ball.y = 0;
         ball.velocityY *= -1; 

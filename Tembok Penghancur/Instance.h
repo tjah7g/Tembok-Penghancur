@@ -23,7 +23,7 @@ public:
     
     Ball ball;
     Paddle paddle;
-    Sound soundBall = LoadSound("resources/sounds/ball_collision.wav");
+    //Sound soundBall = LoadSound("resources/Click_UI.wav");
     bool isSound = true;
     DottedLine aimingLine;
 

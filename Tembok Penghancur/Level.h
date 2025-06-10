@@ -7,12 +7,16 @@
 #endif  
 
 #include "Instance.h"
+#include "BrickFactory.h"
+#include "AudioManager.h"
+#include "ScoreObserver.h"
 
 class Level : public Instance
 {
 	vector<int> brickType;
 	vector<Brick> bricks;
-	
+	ScoreObserver scoreObserver;
+
 public:
 
 	Level();

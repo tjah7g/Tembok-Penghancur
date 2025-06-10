@@ -12,7 +12,7 @@ int main()
     SetConfigFlags(FLAG_VSYNC_HINT); 
     InitWindow(windowWidth, windowHeight, "My Bricks Breaker");
     centerWindow(windowWidth, windowHeight);
-    InitAudioDevice();
+    //InitAudioDevice();
 
     vector<int> brickType;
     for (int i = 0; i < 7; i++)
@@ -25,7 +25,7 @@ int main()
 
     Level level(brickType);
     level.render();
-    CloseAudioDevice();
+    //CloseAudioDevice();
     CloseWindow(); 
 
     return 0;
