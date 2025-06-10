@@ -130,7 +130,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="Instance.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -138,10 +137,7 @@
     <ClCompile Include="Tembok Penghancur.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BrickFactory.h" />
-    <ClInclude Include="ButtonP.h" />
-    <ClInclude Include="ButtonR.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="header.h" />
     <ClInclude Include="Instance.h" />
